@@ -1,0 +1,269 @@
+{
+  "startedAt": "2026-09-25T16:05:13.984Z",
+  "endpoint": "ws://127.0.0.1:19611",
+  "relayLog": [
+    {
+      "at": "2026-09-25T16:06:23.994Z",
+      "event": "drop",
+      "sockets": 2
+    },
+    {
+      "at": "2026-09-25T16:06:24.792Z",
+      "event": "refused"
+    },
+    {
+      "at": "2026-09-25T16:06:25.953Z",
+      "event": "refused"
+    },
+    {
+      "at": "2026-09-25T16:06:29.648Z",
+      "event": "refused"
+    },
+    {
+      "at": "2026-09-25T16:06:36.575Z",
+      "event": "refused"
+    },
+    {
+      "at": "2026-09-25T16:06:43.998Z",
+      "event": "restore"
+    }
+  ],
+  "readiness": {
+    "status": "ready",
+    "reason": null,
+    "queueDepth": 0,
+    "oldestQueuedAt": null,
+    "asOfCommitSeq": 23683
+  },
+  "liveEvents": [
+    {
+      "at": "2026-09-25T16:05:13.982Z",
+      "what": "connecting"
+    },
+    {
+      "at": "2026-09-25T16:05:14.518Z",
+      "what": "connected"
+    },
+    {
+      "at": "2026-09-25T16:06:23.997Z",
+      "what": "dropped",
+      "reason": "closed 1006"
+    },
+    {
+      "at": "2026-09-25T16:06:24.790Z",
+      "what": "connecting"
+    },
+    {
+      "at": "2026-09-25T16:06:24.794Z",
+      "what": "dropped",
+      "reason": "socket error"
+    },
+    {
+      "at": "2026-09-25T16:06:25.951Z",
+      "what": "connecting"
+    },
+    {
+      "at": "2026-09-25T16:06:25.954Z",
+      "what": "dropped",
+      "reason": "socket error"
+    },
+    {
+      "at": "2026-09-25T16:06:29.647Z",
+      "what": "connecting"
+    },
+    {
+      "at": "2026-09-25T16:06:29.649Z",
+      "what": "dropped",
+      "reason": "socket error"
+    },
+    {
+      "at": "2026-09-25T16:06:36.573Z",
+      "what": "connecting"
+    },
+    {
+      "at": "2026-09-25T16:06:36.575Z",
+      "what": "dropped",
+      "reason": "socket error"
+    },
+    {
+      "at": "2026-09-25T16:06:48.552Z",
+      "what": "connecting"
+    },
+    {
+      "at": "2026-09-25T16:06:49.146Z",
+      "what": "connected"
+    }
+  ],
+  "reconcileEvents": [
+    {
+      "symbol": "BTCUSDT",
+      "open": "2026-09-25T16:05:00.000Z",
+      "decision": "repaired",
+      "detail": "3426 -> 5060 trades"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "open": "2026-09-25T16:05:00.000Z",
+      "decision": "repaired",
+      "detail": "3580 -> 5147 trades"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "open": "2026-09-25T16:06:00.000Z",
+      "decision": "repaired",
+      "detail": "2499 -> 5073 trades"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "open": "2026-09-25T16:06:00.000Z",
+      "decision": "repaired",
+      "detail": "1858 -> 3816 trades"
+    }
+  ],
+  "symbols": {
+    "BTCUSDT": {
+      "comparable": 3,
+      "matched": 3,
+      "reconciledGapMinutes": 2,
+      "rows": [
+        {
+          "open": "2026-09-25T16:05:00.000Z",
+          "state": "closed",
+          "completeness": "reconciled",
+          "reasons": [
+            "repaired",
+            "source_gap",
+            "startup_partial"
+          ],
+          "trades": 5060,
+          "valueRevision": 9103,
+          "comparable": true,
+          "equal": true
+        },
+        {
+          "open": "2026-09-25T16:06:00.000Z",
+          "state": "closed",
+          "completeness": "reconciled",
+          "reasons": [
+            "repaired",
+            "source_gap"
+          ],
+          "trades": 5073,
+          "valueRevision": 14080,
+          "comparable": true,
+          "equal": true
+        },
+        {
+          "open": "2026-09-25T16:07:00.000Z",
+          "state": "closed",
+          "completeness": "unverified",
+          "reasons": [],
+          "trades": 4435,
+          "valueRevision": 20297,
+          "comparable": true,
+          "equal": true
+        },
+        {
+          "open": "2026-09-25T16:08:00.000Z",
+          "state": "open",
+          "completeness": "unverified",
+          "reasons": [],
+          "trades": 1739,
+          "valueRevision": 23662,
+          "comparable": false,
+          "equal": false,
+          "ours": [
+            "83979.49",
+            "84006.01",
+            "83979.48",
+            "83988.36",
+            "4.50398",
+            "378318.1059856",
+            1739
+          ],
+          "exchange": [
+            "83979.49",
+            "84006.01",
+            "83979.48",
+            "83981.52",
+            "4.7595",
+            "399778.1827481",
+            1888
+          ]
+        }
+      ]
+    },
+    "ETHUSDT": {
+      "comparable": 3,
+      "matched": 3,
+      "reconciledGapMinutes": 2,
+      "rows": [
+        {
+          "open": "2026-09-25T16:05:00.000Z",
+          "state": "closed",
+          "completeness": "reconciled",
+          "reasons": [
+            "repaired",
+            "source_gap",
+            "startup_partial"
+          ],
+          "trades": 5147,
+          "valueRevision": 9105,
+          "comparable": true,
+          "equal": true
+        },
+        {
+          "open": "2026-09-25T16:06:00.000Z",
+          "state": "closed",
+          "completeness": "reconciled",
+          "reasons": [
+            "repaired",
+            "source_gap"
+          ],
+          "trades": 3816,
+          "valueRevision": 14214,
+          "comparable": true,
+          "equal": true
+        },
+        {
+          "open": "2026-09-25T16:07:00.000Z",
+          "state": "closed",
+          "completeness": "unverified",
+          "reasons": [],
+          "trades": 3817,
+          "valueRevision": 20297,
+          "comparable": true,
+          "equal": true
+        },
+        {
+          "open": "2026-09-25T16:08:00.000Z",
+          "state": "open",
+          "completeness": "unverified",
+          "reasons": [],
+          "trades": 1618,
+          "valueRevision": 23720,
+          "comparable": false,
+          "equal": false,
+          "ours": [
+            "2693.41",
+            "2694.44",
+            "2693.4",
+            "2693.65",
+            "141.6746",
+            "381708.513125",
+            1618
+          ],
+          "exchange": [
+            "2693.41",
+            "2694.44",
+            "2693.36",
+            "2693.36",
+            "147.206",
+            "396607.324885",
+            1699
+          ]
+        }
+      ]
+    }
+  }
+}

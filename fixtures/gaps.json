@@ -1,0 +1,15 @@
+{
+  "name": "mid-minute-start-and-grace-period-disconnect",
+  "startMs": 1767268830000,
+  "truth": [
+    {"venue":"mock","market":"spot","symbol":"BTCUSDT","tradeId":"1","eventTimeMs":1767268830000,"price":"101","quantity":"0.25"}
+  ],
+  "actions": [
+    {"kind":"source","atMs":1767268830000,"state":"connected"},
+    {"kind":"trade","atMs":1767268830100,"trade":{"venue":"mock","market":"spot","symbol":"BTCUSDT","tradeId":"1","eventTimeMs":1767268830000,"price":"101","quantity":"0.25"}},
+    {"kind":"source","atMs":1767268861000,"state":"disconnected"},
+    {"kind":"source","atMs":1767268861500,"state":"connected"},
+    {"kind":"advance","atMs":1767268862000},
+    {"kind":"source","atMs":1767268862000,"state":"stopped"}
+  ]
+}

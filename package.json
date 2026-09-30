@@ -1,0 +1,30 @@
+{
+  "name": "trade-kline-service",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.16.0 <23"
+  },
+  "scripts": {
+    "start": "tsx src/main.ts",
+    "test": "node scripts/test.mjs",
+    "typecheck": "tsc --noEmit",
+    "demo": "node scripts/demo.mjs",
+    "benchmark": "node --import tsx scripts/benchmark.mjs",
+    "consume": "node examples/read-klines.mjs",
+    "package": "node scripts/package.mjs",
+    "check:package": "node scripts/check-package.mjs",
+    "binance:capture": "node --import tsx scripts/binance-capture.mjs",
+    "binance:live-check": "node scripts/binance-live-check.mjs"
+  },
+  "dependencies": {
+    "decimal.js": "10.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.15.30",
+    "fflate": "^0.8.3",
+    "tsx": "4.20.3",
+    "typescript": "5.8.3"
+  }
+}

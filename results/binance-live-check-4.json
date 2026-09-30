@@ -1,0 +1,206 @@
+{
+  "startedAt": "2026-09-25T11:52:23.912Z",
+  "readiness": {
+    "status": "ready",
+    "reason": null,
+    "queueDepth": 0,
+    "oldestQueuedAt": null,
+    "asOfCommitSeq": 13721
+  },
+  "symbols": {
+    "BTCUSDT": {
+      "comparable": 3,
+      "matched": 3,
+      "rows": [
+        {
+          "open": "2026-09-25T11:52:00.000Z",
+          "state": "closed",
+          "reasons": [
+            "source_gap",
+            "startup_partial"
+          ],
+          "completeness": "unverified",
+          "trades": 1866,
+          "comparable": false,
+          "equal": false,
+          "ours": [
+            "84676",
+            "84691.98",
+            "84658",
+            "84658",
+            "7.42432",
+            "628670.8751796",
+            1866
+          ],
+          "exchange": [
+            "84682.39",
+            "84691.98",
+            "84658",
+            "84658",
+            "13.59836",
+            "1151461.4606617",
+            2916
+          ]
+        },
+        {
+          "open": "2026-09-25T11:53:00.000Z",
+          "state": "closed",
+          "reasons": [],
+          "completeness": "unverified",
+          "trades": 2072,
+          "comparable": true,
+          "equal": true
+        },
+        {
+          "open": "2026-09-25T11:54:00.000Z",
+          "state": "closed",
+          "reasons": [],
+          "completeness": "unverified",
+          "trades": 1661,
+          "comparable": true,
+          "equal": true
+        },
+        {
+          "open": "2026-09-25T11:55:00.000Z",
+          "state": "closed",
+          "reasons": [],
+          "completeness": "unverified",
+          "trades": 2006,
+          "comparable": true,
+          "equal": true
+        },
+        {
+          "open": "2026-09-25T11:56:00.000Z",
+          "state": "open",
+          "reasons": [],
+          "completeness": "unverified",
+          "trades": 156,
+          "comparable": false,
+          "equal": false,
+          "ours": [
+            "84630",
+            "84630",
+            "84624.13",
+            "84624.13",
+            "0.8386",
+            "70969.9922155",
+            156
+          ],
+          "exchange": [
+            "84630",
+            "84630",
+            "84609.94",
+            "84609.95",
+            "1.30983",
+            "110844.1266506",
+            467
+          ]
+        }
+      ]
+    },
+    "ETHUSDT": {
+      "comparable": 3,
+      "matched": 3,
+      "rows": [
+        {
+          "open": "2026-09-25T11:52:00.000Z",
+          "state": "closed",
+          "reasons": [
+            "source_gap",
+            "startup_partial"
+          ],
+          "completeness": "unverified",
+          "trades": 1004,
+          "comparable": false,
+          "equal": false,
+          "ours": [
+            "2721.12",
+            "2721.21",
+            "2720.44",
+            "2720.44",
+            "73.0477",
+            "198756.412972",
+            1004
+          ],
+          "exchange": [
+            "2721.46",
+            "2721.47",
+            "2720.44",
+            "2720.44",
+            "124.0851",
+            "337625.563472",
+            1555
+          ]
+        },
+        {
+          "open": "2026-09-25T11:53:00.000Z",
+          "state": "closed",
+          "reasons": [],
+          "completeness": "unverified",
+          "trades": 1446,
+          "comparable": true,
+          "equal": true
+        },
+        {
+          "open": "2026-09-25T11:54:00.000Z",
+          "state": "closed",
+          "reasons": [],
+          "completeness": "unverified",
+          "trades": 736,
+          "comparable": true,
+          "equal": true
+        },
+        {
+          "open": "2026-09-25T11:55:00.000Z",
+          "state": "closed",
+          "reasons": [],
+          "completeness": "unverified",
+          "trades": 1898,
+          "comparable": true,
+          "equal": true
+        },
+        {
+          "open": "2026-09-25T11:56:00.000Z",
+          "state": "open",
+          "reasons": [],
+          "completeness": "unverified",
+          "trades": 55,
+          "comparable": false,
+          "equal": false,
+          "ours": [
+            "2718.22",
+            "2718.22",
+            "2718.02",
+            "2718.02",
+            "4.2351",
+            "11511.872731",
+            55
+          ],
+          "exchange": [
+            "2718.22",
+            "2718.22",
+            "2717.72",
+            "2717.72",
+            "10.7214",
+            "29140.774123",
+            166
+          ]
+        }
+      ]
+    }
+  },
+  "liveEvents": [
+    {
+      "event": "live",
+      "what": "connecting",
+      "at": 1790337143912,
+      "url": "wss://data-stream.binance.vision/stream?streams=btcusdt@trade/ethusdt@trade",
+      "attempt": 0
+    },
+    {
+      "event": "live",
+      "what": "connected",
+      "at": 1790337144422
+    }
+  ]
+}

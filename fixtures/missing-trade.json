@@ -1,0 +1,16 @@
+{
+  "name": "truth-has-trade-inside-disconnect",
+  "startMs": 1767268800000,
+  "truth": [
+    {"venue":"mock","market":"spot","symbol":"BTCUSDT","tradeId":"1","eventTimeMs":1767268801000,"price":"100","quantity":"1"},
+    {"venue":"mock","market":"spot","symbol":"BTCUSDT","tradeId":"2","eventTimeMs":1767268803000,"price":"101","quantity":"1"}
+  ],
+  "actions": [
+    {"kind":"source","atMs":1767268800000,"state":"connected"},
+    {"kind":"trade","atMs":1767268801100,"trade":{"venue":"mock","market":"spot","symbol":"BTCUSDT","tradeId":"1","eventTimeMs":1767268801000,"price":"100","quantity":"1"}},
+    {"kind":"source","atMs":1767268802000,"state":"disconnected"},
+    {"kind":"source","atMs":1767268804000,"state":"connected"},
+    {"kind":"advance","atMs":1767268862000},
+    {"kind":"source","atMs":1767268862000,"state":"stopped"}
+  ]
+}

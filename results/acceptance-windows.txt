@@ -1,0 +1,617 @@
+
+> trade-kline-service@1.0.0 check:package
+> node scripts/check-package.mjs --archive=dist/trade-kline-service.zip
+
+
+added 10 packages, and audited 11 packages in 3s
+
+2 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+> trade-kline-service@1.0.0 typecheck
+> tsc --noEmit
+
+
+> trade-kline-service@1.0.0 test
+> node scripts/test.mjs
+
+TAP version 13
+# Subtest: golden out-of-order trades use event order and exact quote volume
+ok 1 - golden out-of-order trades use event order and exact quote volume
+  ---
+  duration_ms: 3.8672
+  type: 'test'
+  ...
+# Subtest: same-millisecond IDs compare numerically and extreme valid price survives
+ok 2 - same-millisecond IDs compare numerically and extreme valid price survives
+  ---
+  duration_ms: 0.9255
+  type: 'test'
+  ...
+# Subtest: UTC half-open bucket and canonical decimals
+ok 3 - UTC half-open bucket and canonical decimals
+  ---
+  duration_ms: 0.9128
+  type: 'test'
+  ...
+# Subtest: UTC minute alignment is independent of host timezone
+ok 4 - UTC minute alignment is independent of host timezone
+  ---
+  duration_ms: 998.3325
+  type: 'test'
+  ...
+# \# exchange kline comparisons {"frames":4651,"bars":4,"comparedWithExchange":2,"minutes":[{"open":"2026-09-25T10:38:00.000Z","trades":952,"reasons":["startup_partial"]},{"open":"2026-09-25T10:39:00.000Z","trades":1504,"reasons":[]},{"open":"2026-09-25T10:40:00.000Z","trades":594,"reasons":[]},{"open":"2026-09-25T10:41:00.000Z","trades":1601,"reasons":["source_gap"]}]}
+# \# injected-disconnect repair {"droppedFrames":1284,"repaired":["10:38","10:39","10:40","10:41"]}
+# (node:5944) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: parser maps the documented @trade fields and keeps trade IDs above 2^53 exact
+ok 5 - parser maps the documented @trade fields and keeps trade IDs above 2^53 exact
+  ---
+  duration_ms: 2.9222
+  type: 'test'
+  ...
+# Subtest: connect, trade, duplicate across reconnect, fenced stale socket, gap from last frame
+ok 6 - connect, trade, duplicate across reconnect, fenced stale socket, gap from last frame
+  ---
+  duration_ms: 11.6863
+  type: 'test'
+  ...
+# Subtest: backoff grows and caps; serverShutdown and max age reconnect at once; silence is a drop
+ok 7 - backoff grows and caps; serverShutdown and max age reconnect at once; silence is a drop
+  ---
+  duration_ms: 6.1353
+  type: 'test'
+  ...
+# Subtest: overflow halts the live source instead of reconnect-looping; stop is clean
+ok 8 - overflow halts the live source instead of reconnect-looping; stop is clean
+  ---
+  duration_ms: 5.903
+  type: 'test'
+  ...
+# Subtest: captured Binance stream replays deterministically and matches the exchange 1m klines
+ok 9 - captured Binance stream replays deterministically and matches the exchange 1m klines
+  ---
+  duration_ms: 2307.0602
+  type: 'test'
+  ...
+# Subtest: captured stream with an injected disconnect is repaired from aggTrades history to equal every exchange kline
+ok 10 - captured stream with an injected disconnect is repaired from aggTrades history to equal every exchange kline
+  ---
+  duration_ms: 1410.2678
+  type: 'test'
+  ...
+# (node:26904) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: deadline before/at/after, delayed queue processing, duplicate after close
+ok 11 - deadline before/at/after, delayed queue processing, duplicate after close
+  ---
+  duration_ms: 11.6182
+  type: 'test'
+  ...
+# Subtest: conflict preserves first fact; equivalent decimal duplicate is idempotent
+ok 12 - conflict preserves first fact; equivalent decimal duplicate is idempotent
+  ---
+  duration_ms: 3.5963
+  type: 'test'
+  ...
+# Subtest: future rejection does not occupy identity; tick is immutable and closes only at deadline
+ok 13 - future rejection does not occupy identity; tick is immutable and closes only at deadline
+  ---
+  duration_ms: 2.6996
+  type: 'test'
+  ...
+# Subtest: queue saturation preserves queued trade and surfaces a fault
+ok 14 - queue saturation preserves queued trade and surfaces a fault
+  ---
+  duration_ms: 2.9421
+  type: 'test'
+  ...
+# Subtest: source gap during grace contaminates previous minute and exists without a bar
+ok 15 - source gap during grace contaminates previous minute and exists without a bar
+  ---
+  duration_ms: 4.5417
+  type: 'test'
+  ...
+# Subtest: strict deadline equality, minute boundary, and cross-symbol identity
+ok 16 - strict deadline equality, minute boundary, and cross-symbol identity
+  ---
+  duration_ms: 3.5716
+  type: 'test'
+  ...
+# Subtest: invalid decimal does not reserve trade ID; capacity fault retains old bar
+ok 17 - invalid decimal does not reserve trade ID; capacity fault retains old bar
+  ---
+  duration_ms: 3.4199
+  type: 'test'
+  ...
+# Subtest: clock fault freezes close, while earlier queued trade commits
+ok 18 - clock fault freezes close, while earlier queued trade commits
+  ---
+  duration_ms: 2.2974
+  type: 'test'
+  ...
+# Subtest: quality capacity failure becomes a durable fault instead of silent truncation
+ok 19 - quality capacity failure becomes a durable fault instead of silent truncation
+  ---
+  duration_ms: 4.1559
+  type: 'test'
+  ...
+# Subtest: semantic limits reject invalid service configuration
+ok 20 - semantic limits reject invalid service configuration
+  ---
+  duration_ms: 1.244
+  type: 'test'
+  ...
+# Subtest: source EOF before grace does not force numeric closure or invent empty bars
+ok 21 - source EOF before grace does not force numeric closure or invent empty bars
+  ---
+  duration_ms: 3.5555
+  type: 'test'
+  ...
+# Subtest: control event limit keeps first eight events and reserves visible fault
+ok 22 - control event limit keeps first eight events and reserves visible fault
+  ---
+  duration_ms: 3.9755
+  type: 'test'
+  ...
+# (node:28436) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: a real ENOSPC keeps the committed prefix readable, latches the cause and refuses intake
+ok 23 - a real ENOSPC keeps the committed prefix readable, latches the cause and refuses intake # SKIP set TKS_ENOSPC_DIR to a small dedicated filesystem to run
+  ---
+  duration_ms: 0.7079
+  type: 'test'
+  ...
+# (node:47984) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: L1 a same-millisecond disconnect/reconnect never lowers qualityRevision
+ok 24 - L1 a same-millisecond disconnect/reconnect never lowers qualityRevision
+  ---
+  duration_ms: 13.4105
+  type: 'test'
+  ...
+# Subtest: L2 a burst of late trades costs one quality row per minute, with an occurrence count
+ok 25 - L2 a burst of late trades costs one quality row per minute, with an occurrence count
+  ---
+  duration_ms: 60.6578
+  type: 'test'
+  ...
+# Subtest: L2 identities older than the retention horizon are pruned; later deliveries there are stale, not late
+ok 26 - L2 identities older than the retention horizon are pruned; later deliveries there are stale, not late
+  ---
+  duration_ms: 6.0331
+  type: 'test'
+  ...
+# Subtest: L2 the retention horizon survives a restart
+ok 27 - L2 the retention horizon survives a restart
+  ---
+  duration_ms: 85.4485
+  type: 'test'
+  ...
+# (node:44428) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: rolling history outlives the quality cap while preserving retained bars and increasing event IDs
+ok 28 - rolling history outlives the quality cap while preserving retained bars and increasing event IDs
+  ---
+  duration_ms: 25.9572
+  type: 'test'
+  ...
+# Subtest: a real retained-window quality overflow still latches a durable writer fault
+ok 29 - a real retained-window quality overflow still latches a durable writer fault
+  ---
+  duration_ms: 2.508
+  type: 'test'
+  ...
+# Subtest: pruning retains future-tolerance boundary gaps and retracted-gap quality revisions
+ok 30 - pruning retains future-tolerance boundary gaps and retracted-gap quality revisions
+  ---
+  duration_ms: 3.8829
+  type: 'test'
+  ...
+# Subtest: an old open gap continues to describe retained barless minutes after pruning
+ok 31 - an old open gap continues to describe retained barless minutes after pruning
+  ---
+  duration_ms: 2.8473
+  type: 'test'
+  ...
+# Subtest: old trade, invalid trade and history cannot resurrect pruned minute records
+ok 32 - old trade, invalid trade and history cannot resurrect pruned minute records
+  ---
+  duration_ms: 4.4386
+  type: 'test'
+  ...
+# Subtest: HTTP refuses expired history instead of presenting a clean empty interval
+ok 33 - HTTP refuses expired history instead of presenting a clean empty interval
+  ---
+  duration_ms: 108.4079
+  type: 'test'
+  ...
+# Subtest: restart prunes before allocating recovery quality and persists the history floor
+ok 34 - restart prunes before allocating recovery quality and persists the history floor
+  ---
+  duration_ms: 94.9244
+  type: 'test'
+  ...
+# Subtest: clock-untrusted fault cannot expire history using its untrusted future timestamp
+ok 35 - clock-untrusted fault cannot expire history using its untrusted future timestamp
+  ---
+  duration_ms: 2.7838
+  type: 'test'
+  ...
+# Subtest: a capacity-faulted file can reopen for reads without allocating another normal quality row
+ok 36 - a capacity-faulted file can reopen for reads without allocating another normal quality row
+  ---
+  duration_ms: 68.698
+  type: 'test'
+  ...
+# Subtest: history retention cannot undercut identity retention or exceed the supported bound
+ok 37 - history retention cannot undercut identity retention or exceed the supported bound
+  ---
+  duration_ms: 0.9018
+  type: 'test'
+  ...
+# (node:43740) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: real HTTP exposes committed current, closed, late quality, and coverage
+ok 38 - real HTTP exposes committed current, closed, late quality, and coverage
+  ---
+  duration_ms: 115.7338
+  type: 'test'
+  ...
+# Subtest: transaction failure keeps committed HTTP bar and readiness reports writer failure
+ok 39 - transaction failure keeps committed HTTP bar and readiness reports writer failure
+  ---
+  duration_ms: 20.6805
+  type: 'test'
+  ...
+# Subtest: HTTP validates query, distinguishes empty data and readiness
+ok 40 - HTTP validates query, distinguishes empty data and readiness
+  ---
+  duration_ms: 34.9115
+  type: 'test'
+  ...
+# Subtest: current endpoint returns overlapping grace-period and current-minute bars
+ok 41 - current endpoint returns overlapping grace-period and current-minute bars
+  ---
+  duration_ms: 24.9907
+  type: 'test'
+  ...
+# Subtest: coverage cursor pages stable event IDs and rejects invalid cursor
+ok 42 - coverage cursor pages stable event IDs and rejects invalid cursor
+  ---
+  duration_ms: 18.7057
+  type: 'test'
+  ...
+# Subtest: HTTP rejects oversized URL and readiness detects stalled queue, not idle source
+ok 43 - HTTP rejects oversized URL and readiness detects stalled queue, not idle source
+  ---
+  duration_ms: 19.8052
+  type: 'test'
+  ...
+# Subtest: idle incomplete HTTP request times out and connection cap drops excess socket
+ok 44 - idle incomplete HTTP request times out and connection cap drops excess socket
+  ---
+  duration_ms: 5015.1382
+  type: 'test'
+  ...
+# (node:41772) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: mock gap fixture exposes startup partial, previous-minute gap and barless coverage
+ok 45 - mock gap fixture exposes startup partial, previous-minute gap and barless coverage
+  ---
+  duration_ms: 14.5186
+  type: 'test'
+  ...
+# Subtest: mock supplier refuses a normal trade while disconnected
+ok 46 - mock supplier refuses a normal trade while disconnected
+  ---
+  duration_ms: 2.1543
+  type: 'test'
+  ...
+# Subtest: mock backpressure drains without replacing planned receive timestamps
+ok 47 - mock backpressure drains without replacing planned receive timestamps
+  ---
+  duration_ms: 3.2673
+  type: 'test'
+  ...
+# Subtest: independent mock truth detects a missing trade without falsely upgrading API completeness
+ok 48 - independent mock truth detects a missing trade without falsely upgrading API completeness
+  ---
+  duration_ms: 5.5809
+  type: 'test'
+  ...
+# (node:42180) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: independent BigInt oracle matches hand-calculated golden constant
+ok 49 - independent BigInt oracle matches hand-calculated golden constant
+  ---
+  duration_ms: 2.9674
+  type: 'test'
+  ...
+# Subtest: independent oracle agrees with production across fixed-seed out-of-order corpus
+ok 50 - independent oracle agrees with production across fixed-seed out-of-order corpus
+  ---
+  duration_ms: 64.7146
+  type: 'test'
+  ...
+# Subtest: doubling every eligible quantity and duplicate copy doubles V/Q only
+ok 51 - doubling every eligible quantity and duplicate copy doubles V/Q only
+  ---
+  duration_ms: 5.6469
+  type: 'test'
+  ...
+# Subtest: maximum declared decimal and 40-digit trade ID remain exact
+ok 52 - maximum declared decimal and 40-digit trade ID remain exact
+  ---
+  duration_ms: 2.2471
+  type: 'test'
+  ...
+# (node:29660) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# \# property totals {"trades":39605,"deliveries":28352,"bars":682,"observableMisses":12799,"silentOnlyMinutes":20,"knownIncompleteBars":284}
+# \# reconciliation totals {"minutes":380,"repaired":317,"confirmed":42,"barless":21}
+# Subtest: generated scenarios keep numeric and quality contracts across 60 seeds
+ok 53 - generated scenarios keep numeric and quality contracts across 60 seeds
+  ---
+  duration_ms: 12263.9969
+  type: 'test'
+  ...
+# Subtest: reconciliation against market truth restores every observable minute across 30 seeds
+ok 54 - reconciliation against market truth restores every observable minute across 30 seeds
+  ---
+  duration_ms: 7305.7458
+  type: 'test'
+  ...
+# (node:47936) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: L3 a minute with a late trade is repaired from history with an explicit value revision
+ok 55 - L3 a minute with a late trade is repaired from history with an explicit value revision
+  ---
+  duration_ms: 21.5215
+  type: 'test'
+  ...
+# Subtest: L3 policy all confirms intact minutes and backfills a minute lost to a disconnect
+ok 56 - L3 policy all confirms intact minutes and backfills a minute lost to a disconnect
+  ---
+  duration_ms: 18.1901
+  type: 'test'
+  ...
+# Subtest: L3 incomplete or premature history is refused and changes nothing
+ok 57 - L3 incomplete or premature history is refused and changes nothing
+  ---
+  duration_ms: 5.002
+  type: 'test'
+  ...
+# Subtest: L3 Binance aggTrades history pages by fromId, keeps exact IDs and refuses truncation
+ok 58 - L3 Binance aggTrades history pages by fromId, keeps exact IDs and refuses truncation
+  ---
+  duration_ms: 62.8378
+  type: 'test'
+  ...
+# Subtest: L3 history with realistic multi-digit and above-2^53 trade IDs reconciles
+ok 59 - L3 history with realistic multi-digit and above-2^53 trade IDs reconciles
+  ---
+  duration_ms: 5.0859
+  type: 'test'
+  ...
+# Subtest: history failures back off and recover after more than three attempts without restarting
+ok 60 - history failures back off and recover after more than three attempts without restarting
+  ---
+  duration_ms: 7.6577
+  type: 'test'
+  ...
+# Subtest: poisoned oldest candidates cannot starve later minutes or another symbol
+ok 61 - poisoned oldest candidates cannot starve later minutes or another symbol
+  ---
+  duration_ms: 19.9238
+  type: 'test'
+  ...
+# Subtest: Binance history times out while waiting for response headers
+ok 62 - Binance history times out while waiting for response headers
+  ---
+  duration_ms: 117.0722
+  type: 'test'
+  ...
+# Subtest: Binance history times out while waiting for response body
+ok 63 - Binance history times out while waiting for response body
+  ---
+  duration_ms: 80.5557
+  type: 'test'
+  ...
+# Subtest: stopping reconciliation aborts its active history request and prevents late enqueue
+ok 64 - stopping reconciliation aborts its active history request and prevents late enqueue
+  ---
+  duration_ms: 5.3873
+  type: 'test'
+  ...
+# Subtest: reconciler shutdown cancels a real HTTP body read before the store closes
+ok 65 - reconciler shutdown cancels a real HTTP body read before the store closes
+  ---
+  duration_ms: 18.6808
+  type: 'test'
+  ...
+# Subtest: shutdown remains bounded if an injected history ignores cancellation
+ok 66 - shutdown remains bounded if an injected history ignores cancellation
+  ---
+  duration_ms: 5.1426
+  type: 'test'
+  ...
+# Subtest: an observability callback cannot interrupt reconciliation progress
+ok 67 - an observability callback cannot interrupt reconciliation progress
+  ---
+  duration_ms: 5.3213
+  type: 'test'
+  ...
+# (node:41912) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: file mode rejects simultaneous writer, semantic config mismatch, and clock rollback
+ok 68 - file mode rejects simultaneous writer, semantic config mismatch, and clock rollback
+  ---
+  duration_ms: 151.6532
+  type: 'test'
+  ...
+# Subtest: clean file restart restores bar, closes due window, and exposes downtime gap
+ok 69 - clean file restart restores bar, closes due window, and exposes downtime gap
+  ---
+  duration_ms: 99.8786
+  type: 'test'
+  ...
+# Subtest: real child kill before COMMIT has atomic recovery behavior
+ok 70 - real child kill before COMMIT has atomic recovery behavior
+  ---
+  duration_ms: 752.9166
+  type: 'test'
+  ...
+# Subtest: real child kill after COMMIT has atomic recovery behavior
+ok 71 - real child kill after COMMIT has atomic recovery behavior
+  ---
+  duration_ms: 584.1526
+  type: 'test'
+  ...
+# Subtest: uncommitted crash trade replayed after deadline is late and leaves recovery gap
+ok 72 - uncommitted crash trade replayed after deadline is late and leaves recovery gap
+  ---
+  duration_ms: 537.3159
+  type: 'test'
+  ...
+# Subtest: file transaction failure preserves committed bar across clean reopen
+ok 73 - file transaction failure preserves committed bar across clean reopen
+  ---
+  duration_ms: 79.5868
+  type: 'test'
+  ...
+# (node:44644) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: F1 nothing queued behind a failed write commits, and the loss is visible on the bar
+ok 74 - F1 nothing queued behind a failed write commits, and the loss is visible on the bar
+  ---
+  duration_ms: 10.6042
+  type: 'test'
+  ...
+# Subtest: F2 a real SQLite FULL error keeps its cause, latches durably and marks the bar
+ok 75 - F2 a real SQLite FULL error keeps its cause, latches durably and marks the bar
+  ---
+  duration_ms: 143.7861
+  type: 'test'
+  ...
+# Subtest: F8 coverage of a barless minute includes a gap that touched only its grace period
+ok 76 - F8 coverage of a barless minute includes a gap that touched only its grace period
+  ---
+  duration_ms: 3.6506
+  type: 'test'
+  ...
+# Subtest: F7 a corrupt database file is refused without leaking the file handle
+ok 77 - F7 a corrupt database file is refused without leaking the file handle
+  ---
+  duration_ms: 8.284
+  type: 'test'
+  ...
+# Subtest: F3 a fresh start flags every minute whose receive window straddles the start, including the previous one
+ok 78 - F3 a fresh start flags every minute whose receive window straddles the start, including the previous one
+  ---
+  duration_ms: 3.7355
+  type: 'test'
+  ...
+# Subtest: F4 a store accepts only its configured venue, so paging cannot skip a duplicate minute key
+ok 79 - F4 a store accepts only its configured venue, so paging cannot skip a duplicate minute key
+  ---
+  duration_ms: 2.4319
+  type: 'test'
+  ...
+# Subtest: F5 a clean restart measures downtime from the latest stop, not one before a reconnect
+ok 80 - F5 a clean restart measures downtime from the latest stop, not one before a reconnect
+  ---
+  duration_ms: 94.371
+  type: 'test'
+  ...
+# Subtest: F6 clock and capacity faults attach to every bar that could still receive trades
+ok 81 - F6 clock and capacity faults attach to every bar that could still receive trades
+  ---
+  duration_ms: 6.2302
+  type: 'test'
+  ...
+1..81
+# tests 81
+# suites 0
+# pass 80
+# fail 0
+# cancelled 0
+# skipped 1
+# todo 0
+# duration_ms 41415.1184
+
+> trade-kline-service@1.0.0 demo
+> node scripts/demo.mjs
+
+{
+  "demo": "passed",
+  "golden": {
+    "bar": {
+      "venue": "mock",
+      "market": "spot",
+      "symbol": "BTCUSDT",
+      "openTimeMs": 1767268800000,
+      "endTimeMs": 1767268860000,
+      "open": "100",
+      "high": "103",
+      "low": "99",
+      "close": "103",
+      "volume": "6",
+      "quoteVolume": "600",
+      "tradeCount": 3,
+      "state": "closed",
+      "valueRevision": 7,
+      "quality": {
+        "completeness": "unverified",
+        "reasons": [],
+        "qualityRevision": 0
+      }
+    },
+    "asOfCommitSeq": 8,
+    "sourceState": "stopped"
+  },
+  "generated_BTCUSDT": {
+    "bars": 6,
+    "pages": 3,
+    "coverageEvents": 16,
+    "coveragePages": 8,
+    "reasons": [
+      "conflicting_identity",
+      "late_rejected",
+      "reconciled",
+      "repaired",
+      "source_gap",
+      "startup_partial"
+    ],
+    "repairedBars": 5
+  },
+  "generated_ETHUSDT": {
+    "bars": 6,
+    "pages": 3,
+    "coverageEvents": 18,
+    "coveragePages": 9,
+    "reasons": [
+      "conflicting_identity",
+      "invalid_input",
+      "late_rejected",
+      "repaired",
+      "source_gap",
+      "startup_partial"
+    ],
+    "repairedBars": 6
+  }
+}
+{
+  "status": "passed",
+  "archive": "[WORKSPACE]\\take-home\\trade-kline-service\\dist\\trade-kline-service.zip",
+  "extractedTo": "[HOME]\\AppData\\Local\\Temp\\trade-kline-package-check-PDRYfH",
+  "entries": 73,
+  "checks": [
+    "npm ci",
+    "npm run typecheck",
+    "npm test",
+    "npm run demo (includes real HTTP consumer)"
+  ]
+}
